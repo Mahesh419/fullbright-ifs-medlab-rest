@@ -8,20 +8,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-public class AppConfiguration {
-	@Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-        	public void addCorsMappings(CorsRegistry registry) {
-        		registry.addMapping("/**")
-        			.allowedOrigins("https://nawalokamedlabs.herokuapp.com/")
-        			.allowedMethods("GET", "POST", "PUT", "DELETE")
-        				.allowedHeaders("header1", "header2", "header3")
-        			.exposedHeaders("header1", "header2")
-        			.allowCredentials(false).maxAge(3600);
-        	}
-        };
-    }
+@EnableWebMvc
+public class AppConfiguration implements WebMvcConfigurer {
+	
+	 @Override
+	    public void addCorsMappings(CorsRegistry registry) {
+	        registry.addMapping("/**").allowedOrigins("https://nawalokamedlabs.herokuapp.com/");
+	    }
 	
 }
