@@ -13,7 +13,7 @@ public class AppConfiguration implements WebMvcConfigurer {
 	
 	 @Override
 	    public void addCorsMappings(CorsRegistry registry) {
-	        registry.addMapping("/**").allowedOrigins("https://nawalokamedlabs.herokuapp.com/");
+	        registry.addMapping("/**");
 	    }
 	
 }

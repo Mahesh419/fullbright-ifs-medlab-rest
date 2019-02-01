@@ -19,6 +19,7 @@ import com.fullbright.medlab.models.UserModel;
 import com.fullbright.medlab.repositories.UserRepository;
 
 @Component
+@CrossOrigin
 @Path("/user")
 public class UserController {
 	
@@ -29,7 +30,6 @@ public class UserController {
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@CrossOrigin(origins = "https://nawalokamedlabs.herokuapp.com/")
 	public Response verifyLogin(User user) {		
 		User verifiedUser = userRepository.findUser(user.getUsername(), user.getPassword());
 		
