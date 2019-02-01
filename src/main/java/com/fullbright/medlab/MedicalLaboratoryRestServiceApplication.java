@@ -21,7 +21,7 @@ public class MedicalLaboratoryRestServiceApplication {
 	      return new WebMvcConfigurerAdapter() {
 	         @Override
 	         public void addCorsMappings(CorsRegistry registry) {
-	            registry.addMapping("/products").allowedOrigins("https://nawalokamedlabs.herokuapp.com");
+	            registry.addMapping("/user").allowedOrigins("https://nawalokamedlabs.herokuapp.com/");
 	         }
 	      };
 	   }
