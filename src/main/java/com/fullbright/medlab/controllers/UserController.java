@@ -11,12 +11,14 @@ import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.fullbright.medlab.entities.User;
 import com.fullbright.medlab.models.UserModel;
 import com.fullbright.medlab.repositories.UserRepository;
 
+@CrossOrigin(origins = "https://nawalokamedlabs.herokuapp.com")
 @Component
 @Path("/user")
 public class UserController {
