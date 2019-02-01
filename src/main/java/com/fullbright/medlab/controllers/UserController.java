@@ -18,7 +18,6 @@ import com.fullbright.medlab.entities.User;
 import com.fullbright.medlab.models.UserModel;
 import com.fullbright.medlab.repositories.UserRepository;
 
-@CrossOrigin(origins = "https://nawalokamedlabs.herokuapp.com")
 @Component
 @Path("/user")
 public class UserController {
