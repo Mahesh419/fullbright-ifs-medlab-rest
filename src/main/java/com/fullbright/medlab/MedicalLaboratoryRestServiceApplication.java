@@ -16,14 +16,5 @@ public class MedicalLaboratoryRestServiceApplication {
 		SpringApplication.run(MedicalLaboratoryRestServiceApplication.class, args);
 	}
 	
-	 @Bean
-	   public WebMvcConfigurer corsConfigurer() {
-	      return new WebMvcConfigurerAdapter() {
-	         @Override
-	         public void addCorsMappings(CorsRegistry registry) {
-	            registry.addMapping("/user").allowedOrigins("https://nawalokamedlabs.herokuapp.com/");
-	         }
-	      };
-	   }
 }
 

@@ -29,6 +29,7 @@ public class UserController {
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
+	@CrossOrigin(origins = "https://nawalokamedlabs.herokuapp.com/")
 	public Response verifyLogin(User user) {		
 		User verifiedUser = userRepository.findUser(user.getUsername(), user.getPassword());
 		
@@ -43,7 +44,7 @@ public class UserController {
 		}
 
 		String response = "{\"status\": \"" + status + "\", \"username\": \"" + userName + "\", \"user_type\": \"" + userType + "\"}";
-		return Response.status(Response.Status.OK).entity(response).build();
+		return Response.status(Response.Status.OK).header("Access-Control-Allow-Origin",).entity(response).build();
 	}
 	
 //	@POST
