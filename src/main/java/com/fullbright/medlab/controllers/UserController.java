@@ -59,7 +59,7 @@ public class UserController {
 		}
 
 		String response = "{\"status\": \"" + status + "\", \"username\": \"" + userName + "\", \"user_type\": \"" + userType + "\"}";
-		return Response.status(Response.Status.OK).header("Access-Control-Allow-Origin", "*").entity(response).build();
+		return Response.status(Response.Status.OK).header("Access-Control-Allow-Origin", "http://nawalokamedlabs.herokuapp.com/").entity(response).build();
 	}
 	
 //	@POST
