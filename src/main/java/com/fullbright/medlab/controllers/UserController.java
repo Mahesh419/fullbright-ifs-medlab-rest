@@ -23,7 +23,7 @@ import com.fullbright.medlab.repositories.UserRepository;
 
 @Component
 @Path("/user")
-@CrossOrigin(allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS}, exposedHeaders = "*", origins = "*", allowCredentials = "false")
+//@CrossOrigin(methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS}, origins = "{http://nawalokamedlabs.herokuapp.com/}", allowCredentials = "false")
 public class UserController {
 	
 	@Autowired
@@ -43,7 +43,7 @@ public class UserController {
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@CrossOrigin(allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.OPTIONS}, exposedHeaders = "*", origins = "*", allowCredentials = "false")
+	//@CrossOrigin(allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.OPTIONS}, exposedHeaders = "*", origins = "*", allowCredentials = "false")
 	public Response verifyLogin(User user) {	
 		//allowCrossDomainAccess();
 		User verifiedUser = userRepository.findUser(user.getUsername(), user.getPassword());
