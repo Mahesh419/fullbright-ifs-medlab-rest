@@ -23,21 +23,11 @@ import com.fullbright.medlab.repositories.UserRepository;
 
 @Component
 @Path("/user")
-//@CrossOrigin(methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.OPTIONS}, origins = "{http://nawalokamedlabs.herokuapp.com/}", allowCredentials = "false")
 public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Context
-	private HttpServletResponse servletResponse;
-
-	private void allowCrossDomainAccess() {
-	    if (servletResponse != null) {
-	        servletResponse.setHeader("Access-Control-Allow-Origin", "*");
-	    }
-	}
-
 	
 	@POST
 	@Path("/login")
@@ -45,7 +35,7 @@ public class UserController {
 	@Produces(MediaType.APPLICATION_JSON)
 	//@CrossOrigin(allowedHeaders = "*", methods = {RequestMethod.POST, RequestMethod.OPTIONS}, exposedHeaders = "*", origins = "*", allowCredentials = "false")
 	public Response verifyLogin(User user) {	
-		//allowCrossDomainAccess();
+		
 		User verifiedUser = userRepository.findUser(user.getUsername(), user.getPassword());
 		
 		boolean status = false;
@@ -59,7 +49,7 @@ public class UserController {
 		}
 
 		String response = "{\"status\": \"" + status + "\", \"username\": \"" + userName + "\", \"user_type\": \"" + userType + "\"}";
-		return Response.status(Response.Status.OK).header("Access-Control-Allow-Origin", "http://nawalokamedlabs.herokuapp.com/").entity(response).build();
+		return Response.status(Response.Status.OK).entity(response).build();
 	}
 	
 //	@POST
