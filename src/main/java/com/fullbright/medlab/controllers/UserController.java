@@ -1,10 +1,12 @@
 package com.fullbright.medlab.controllers;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -27,12 +29,23 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Context
+	private HttpServletResponse servletResponse;
+
+	private void allowCrossDomainAccess() {
+	    if (servletResponse != null) {
+	        servletResponse.setHeader("Access-Control-Allow-Origin", "*");
+	    }
+	}
+
+	
 	@POST
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@CrossOrigin(allowedHeaders = "Access-Control-Allow-Origin", methods = RequestMethod.POST, exposedHeaders = "Access-Control-Allow-Origin", origins = "http://nawalokamedlabs.herokuapp.com")
-	public Response verifyLogin(User user) {		
+	public Response verifyLogin(User user) {	
+		allowCrossDomainAccess();
 		User verifiedUser = userRepository.findUser(user.getUsername(), user.getPassword());
 		
 		boolean status = false;
