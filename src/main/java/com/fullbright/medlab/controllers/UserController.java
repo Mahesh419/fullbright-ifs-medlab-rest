@@ -44,7 +44,7 @@ public class UserController {
 		}
 
 		String response = "{\"status\": \"" + status + "\", \"username\": \"" + userName + "\", \"user_type\": \"" + userType + "\"}";
-		return Response.status(Response.Status.OK).entity(response).build();
+		return Response.status(Response.Status.OK).header("Access-Control-Allow-Origin", "*").entity(response).build();
 	}
 	
 //	@POST
