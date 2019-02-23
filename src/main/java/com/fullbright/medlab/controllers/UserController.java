@@ -20,6 +20,7 @@ import com.fullbright.medlab.repositories.UserRepository;
 
 @Component
 @Path("/user")
+@CrossOrigin(allowedHeaders = "Access-Control-Allow-Origin", exposedHeaders = "Access-Control-Allow-Origin", origins = "http://nawalokamedlabs.herokuapp.com")
 public class UserController {
 	
 	@Autowired
