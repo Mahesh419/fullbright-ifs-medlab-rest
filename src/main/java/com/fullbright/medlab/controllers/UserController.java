@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fullbright.medlab.entities.User;
 import com.fullbright.medlab.models.UserModel;
@@ -30,7 +31,7 @@ public class UserController {
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@CrossOrigin(allowedHeaders = "Access-Control-Allow-Origin", exposedHeaders = "Access-Control-Allow-Origin", origins = "http://nawalokamedlabs.herokuapp.com")
+	@CrossOrigin(allowedHeaders = "Access-Control-Allow-Origin", methods = RequestMethod.POST, exposedHeaders = "Access-Control-Allow-Origin", origins = "http://nawalokamedlabs.herokuapp.com")
 	public Response verifyLogin(User user) {		
 		User verifiedUser = userRepository.findUser(user.getUsername(), user.getPassword());
 		
