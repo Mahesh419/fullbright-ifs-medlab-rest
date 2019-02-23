@@ -17,7 +17,7 @@ public class TestController {
 
 	@Autowired
 	private TestRepository testRepository;
-	
+		
 	public ArrayList<Test> getTestFromProfileId(long profileId){
 		return testRepository.getTestByProfile(profileId);
 	}
